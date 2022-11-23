@@ -37,11 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api',
     'rest_framework',
+    'rest_framework.authtoken',
     'litebot',
     'contract_info',
-    'auth'
+    'auth_app',
 ]
 
 MIDDLEWARE = [
@@ -86,9 +86,22 @@ DATABASES = {
     }
 }
 
+# Rest Framework Configuration
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 25,
+    'NON_FIELD_ERRORS_KEY': 'error',
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
+
+AUTH_USER_MODEL = 'auth_app.User'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
