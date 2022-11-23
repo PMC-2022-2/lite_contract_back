@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',
-    'graphene_django',
+    'rest_framework',
+    'litebot',
+    'contract_info',
+    'auth'
 ]
 
 MIDDLEWARE = [
@@ -51,9 +54,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-GRAPHENE = {
-    'SCHEMA': 'api.schema.schema'
-}
 
 ROOT_URLCONF = 'lite_contract_back.urls'
 
